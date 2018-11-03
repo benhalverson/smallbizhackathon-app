@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
-
+import AppRouter from './routers/AppRouter';
+import { Provider } from 'react-redux';
+import configureStore from './store/configureStore';
 import './App.css';
-import SearchComponent from './components/SearchComponent';
-
+const store = configureStore();
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <SearchComponent />
-      </div>
+      <Provider store={store}>
+        <AppRouter />
+      </Provider>
     );
   }
 }
