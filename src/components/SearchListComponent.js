@@ -25,7 +25,7 @@ const styles = theme => ({
   }
 });
 
-function TitlebarGridList(props) {
+function SearchListComponent(props) {
   const { classes } = props;
 
   return (
@@ -52,8 +52,8 @@ function TitlebarGridList(props) {
   );
 }
 
-TitlebarGridList.propTypes = {
+SearchListComponent.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(TitlebarGridList);
+export default withStyles(styles)(SearchListComponent);

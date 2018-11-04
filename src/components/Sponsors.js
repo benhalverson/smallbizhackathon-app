@@ -1,0 +1,82 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
+import ListItemText from '@material-ui/core/ListItemText';
+import Checkbox from '@material-ui/core/Checkbox';
+import Avatar from '@material-ui/core/Avatar';
+import IconButton from '@material-ui/core/IconButton';
+import CommentIcon from '@material-ui/icons/Comment';
+
+
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+
+// const Sponsors = (props) => (
+//    <h1>Sponsors Page com</h1>
+// )
+
+
+ 
+const styles = {
+  card: {
+    maxWidth: "90%",
+    marigin: "50px",
+    height: "80%",
+  },
+  media: {
+    height: 140,
+  },
+};
+
+
+class Sponsors extends React.Component {
+  state = {
+    anchorEl: null,
+    mobileMoreAnchorEl: null,
+    left: false, 
+    // open: false, 
+  }
+
+
+    render(){
+      const { classes, theme } = this.props;
+let value=1;
+      return(
+
+        <div>
+        <h1>Sponsors</h1>
+         <Card className={classes.card} >
+         {[1,2,3].map(value => (
+        <ListItem key={value} dense button>
+              <Avatar alt="Remy Sharp" src="https://via.placeholder.com/150/0000FF/808080 ?Text=Digital.com
+
+C/O https://placeholder.com/ " />
+              <ListItemText primary={`Line item ${value + 1}`} />
+              <ListItemText secondory={`Line itemffff ${value + 3}`} />
+              <ListItemSecondaryAction>
+                <Checkbox
+                  // onChange={this.handleToggle(value)}
+                  // checked={this.state.checked.indexOf(value) !== -1}
+                />
+                 <IconButton aria-label="Comments">
+                  <CommentIcon />
+                </IconButton>
+
+              </ListItemSecondaryAction>
+            </ListItem>
+          ) )}
+             </Card  >
+              </div>
+
+      );
+    }
+  };
+  
+Sponsors.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(Sponsors);
