@@ -168,7 +168,7 @@ class MediaCard extends React.Component {
                   <ListItem key={value.id} dense button     >
                     <Avatar
                       alt="Remy Sharp"
-                      src={'http://lorempixel.com/200/200/people/' + value}
+                      src={value.img}
                     />
                     <ListItemText
                       primary={
@@ -232,7 +232,7 @@ class MediaCard extends React.Component {
 
            {/* {[1,2,3].map(value => ( */}
         <ListItem key={value} dense button>
-              <Avatar alt="Remy Sharp" src={"http://lorempixel.com/200/200/people/"+ value}    />
+              <Avatar alt="Remy Sharp" src={"./images/img2.jpg"}    />
               <ListItemText primary={<span>`Line item ${value + 1}` <p>halo</p>  <h3>test</h3> </span>} />
                 
               <ListItemSecondaryAction>
@@ -248,7 +248,7 @@ class MediaCard extends React.Component {
             </ListItem>
 
              <ListItem key={value+1} dense button>
-              <Avatar alt="Remy Sharp" src={"http://lorempixel.com/200/200/people/"+ value}    />
+              <Avatar alt="Remy Sharp" src={"./images/imgsmb.jpg"}    />
               <ListItemText primary={<span>`Line item ${value + 1}` <p>halo</p>  <h3>test</h3> </span>} />
                 
               <ListItemSecondaryAction>
@@ -264,7 +264,7 @@ class MediaCard extends React.Component {
             </ListItem>
 
              <ListItem key={value+2} dense button>
-              <Avatar alt="Remy Sharp" src={"http://lorempixel.com/200/200/people/"+ value}    />
+              <Avatar alt="Remy Sharp" src={"./images/img9.jpg"}    />
               <ListItemText primary={<span>`Line item ${value + 1}` <p>halo</p>  <h3>test</h3> </span>} />
                 
               <ListItemSecondaryAction>

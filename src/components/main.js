@@ -156,7 +156,7 @@ class MainAppBar extends React.Component {
   handleSearchClick = () =>  {
     console.log("searchclick");
     this.setState({redirect: true});
-    this.props.history.push('/');
+    this.history.push('/');
     // this.context.router.push('/search');
   }
 
@@ -168,7 +168,7 @@ class MainAppBar extends React.Component {
     const { anchorEl, mobileMoreAnchorEl } = this.state;
     const { classes, theme } = this.props;
     const { anchor, open } = this.state;
-    const title = 'SMBLE PROMO';
+    const title = 'SMBLE PROMO $5 ';
      
     const isMenuOpen = Boolean(anchorEl);
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -275,6 +275,7 @@ const sideList = (
                <SearchIcon />  
               </div>
               <Input
+                
                 placeholder="Search…"
                 disableUnderline
                 classes={{
