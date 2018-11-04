@@ -12,6 +12,7 @@ import Grid from '@material-ui/core/Grid';
 
 
 const styles = {
+  
   card: {
     maxWidth: 345,
   },

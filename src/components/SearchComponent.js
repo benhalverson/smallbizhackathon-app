@@ -54,17 +54,8 @@ class SearchComponent extends React.Component {
     const { classes, theme } = this.props;
     return (
       <div className={classes.search}>
-        <div className={classes.searchIcon}>
-          <SearchIcon />
-        </div>
-        <Input
-          placeholder="Search…"
-          disableUnderline
-          classes={{
-            root: classes.inputRoot,
-            input: classes.inputInput
-          }}
-        />
+       
+       
         <div>
           <SearchListComponent />
         </div>

@@ -37,7 +37,7 @@ export const searchResults = [
     companyName: 'Acme Inc.',
     description: 'Building stuff',
     category: 'food',
-    id: 6
+    id: 5
   },
   {
     img: image2,

@@ -69,8 +69,15 @@ export const otherMailFolderListItems = (
       <ListItemIcon>
         <MailIcon />
       </ListItemIcon>
-      <ListItemText primary="History" />
+      <ListItemText primary="My History" />
     </ListItemLink >
-    
+
+    <ListItem button>
+      <ListItemIcon>
+        <StarIcon />
+      </ListItemIcon>
+      <Link to="/about">
+      <ListItemText primary="Goto Events" /></Link> 
+    </ListItem>
   </div>
 );
