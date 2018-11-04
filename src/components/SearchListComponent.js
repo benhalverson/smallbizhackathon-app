@@ -48,7 +48,13 @@ function SearchListComponent(props) {
             <img
               src={tile.img}
               alt={tile.companyName}
-              style={{ width: '80', height: '100%' }}
+              style={{
+                width: '42%',
+                height: '57%',
+                position: 'relative',
+                top: '30%',
+                left: '30%'
+              }}
             />
             <GridListTileBar
               title={tile.title}
