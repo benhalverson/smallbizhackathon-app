@@ -21,6 +21,7 @@ import IconButton from '@material-ui/core/IconButton';
 import Payment from '@material-ui/icons/Payment';
 import RemoveCircle from '@material-ui/icons/RemoveCircle';
 import AddCircle from '@material-ui/icons/AddCircle';
+import {searchResults} from './searchResults';
 
 
 const styles = {
@@ -35,9 +36,10 @@ const styles = {
 
 function MediaCard(props) {
   const { classes } = props;
+  const value =1;
   return (
     <div>
-      <h3></h3>
+      <h3>Updates</h3>
      <Grid container direction="column"
   justify="center"
   alignItems="center"
@@ -59,10 +61,10 @@ function MediaCard(props) {
            New sponsor requests from small business promoters : like events, NPO and other SMBs
           </Typography>
 
-           {[1,2,3].map(value => (
-        <ListItem key={value} dense button>
+           {searchResults.map(value => (
+        <ListItem key={value.id} dense button>
               <Avatar alt="Remy Sharp" src={"http://lorempixel.com/200/200/people/"+ value}    />
-              <ListItemText primary={<span>`Line item ${value + 1}` <p>halo</p>  <h3>test</h3> </span>} />
+              <ListItemText primary={<span>`  ${value.companyName  }` <p> </p>  <h3>test</h3> </span>} />
                 
               <ListItemSecondaryAction>
            {/* if(value  == 2){  */}
@@ -105,11 +107,27 @@ function MediaCard(props) {
             Applied to Promoters:
           </Typography>
           <Typography component="p">
-            Status of your applications to Promoters of your interest.
+            Status of your applications to Promoters of your interest. Make your payment if accepted.   
           </Typography>
 
-           {[1,2,3].map(value => (
+           {/* {[1,2,3].map(value => ( */}
         <ListItem key={value} dense button>
+              <Avatar alt="Remy Sharp" src={"http://lorempixel.com/200/200/people/"+ value}    />
+              <ListItemText primary={<span>`Line item ${value + 1}` <p>halo</p>  <h3>test</h3> </span>} />
+                
+              <ListItemSecondaryAction>
+{/*                 
+                 <ListItemIcon   style={{color: '#0066ff',   }} aria-label="Comments">
+                  <Payment />
+                </ListItemIcon>                 */}
+                <ListItemIcon   style={{color: '#ff3d00',}} aria-label="Comments">
+                  <RemoveCircle />
+                </ListItemIcon>
+
+              </ListItemSecondaryAction>
+            </ListItem>
+
+             <ListItem key={value} dense button>
               <Avatar alt="Remy Sharp" src={"http://lorempixel.com/200/200/people/"+ value}    />
               <ListItemText primary={<span>`Line item ${value + 1}` <p>halo</p>  <h3>test</h3> </span>} />
                 
@@ -118,13 +136,29 @@ function MediaCard(props) {
                  <ListItemIcon   style={{color: '#0066ff',   }} aria-label="Comments">
                   <Payment />
                 </ListItemIcon>                
+                {/* <ListItemIcon   style={{color: '#ff3d00',}} aria-label="Comments">
+                  <RemoveCircle />
+                </ListItemIcon> */}
+
+              </ListItemSecondaryAction>
+            </ListItem>
+
+             <ListItem key={value} dense button>
+              <Avatar alt="Remy Sharp" src={"http://lorempixel.com/200/200/people/"+ value}    />
+              <ListItemText primary={<span>`Line item ${value + 1}` <p>halo</p>  <h3>test</h3> </span>} />
+                
+              <ListItemSecondaryAction>
+                
+                 {/* <ListItemIcon   style={{color: '#0066ff',   }} aria-label="Comments">
+                  <Payment />
+                </ListItemIcon>                 */}
                 <ListItemIcon   style={{color: '#ff3d00',}} aria-label="Comments">
                   <RemoveCircle />
                 </ListItemIcon>
 
               </ListItemSecondaryAction>
             </ListItem>
-          ) )}
+          {/* ) )} */}
         </CardContent>
       </CardActionArea>
       <CardActions>

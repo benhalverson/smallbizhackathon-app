@@ -3,7 +3,8 @@ const intuitDev =
 const image1 = 'http://svfilmfestival.com/images/svfftrophylogo_hr.jpg';
 const image2 =
   'http://logok.org/wp-content/uploads/2015/09/Google-logo-2015-G-icon.png';
-export const searchResults = [
+
+  export const searchResults = [
   {
     img: intuitDev,
     companyName: 'Acme Inc.',
@@ -13,36 +14,38 @@ export const searchResults = [
   },
   {
     img: image1,
-    companyName: 'Acme Inc.',
-    description: 'Building stuff',
+    companyName: 'Togos Inc.',
+    description: 'American food and stuff',
     category: 'food',
     id: 2
   },
   {
     img: image2,
-    companyName: 'Acme Inc.',
-    description: 'Building stuff',
+    companyName: 'Tocobell Inc.',
+    description: 'Mexican food and stuff',
     category: 'food',
     id: 3
   },
   {
     img: intuitDev,
-    companyName: 'Acme Inc.',
-    description: 'Building stuff',
-    category: 'food',
+    companyName: 'Michaels Inc.',
+    description: 'design and decors and stuff',
+    category: 'design',
     id: 4
   },
   {
     img: image1,
-    companyName: 'Acme Inc.',
-    description: 'Building stuff',
-    category: 'food',
+    companyName: 'SMOG test Inc.',
+    description: 'SMOG stuff',
+    category: 'Auto',
     id: 5
   },
   {
     img: image2,
-    companyName: 'Acme Inc.',
-    description: 'Building stuff',
+    companyName: 'Pet store Inc.',
+    description: 'Pet stuff',
     id: 6
   }
 ];
+
+// export searchResults;

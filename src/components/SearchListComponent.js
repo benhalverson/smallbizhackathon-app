@@ -6,7 +6,7 @@ import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
 // import ListSubheader from '@material-ui/core/ListSubheader';
 import IconButton from '@material-ui/core/IconButton';
-import { searchResults } from '../data/searchResults';
+import { searchResults } from './searchResults';
 // import {Button} from '@material-ui/core/Button';
 import AddCircle  from '@material-ui/icons/AddCircle';
 
