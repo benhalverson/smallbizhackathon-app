@@ -29,7 +29,7 @@ export const searchResults = [
     img: intuitDev,
     companyName: 'Acme Inc.',
     description: 'Building stuff',
-    category: 'location',
+    category: 'food',
     id: 4
   },
   {
@@ -43,7 +43,6 @@ export const searchResults = [
     img: image2,
     companyName: 'Acme Inc.',
     description: 'Building stuff',
-    category: 'food',
     id: 6
   }
 ];
