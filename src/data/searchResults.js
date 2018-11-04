@@ -8,18 +8,41 @@ export const searchResults = [
     img: intuitDev,
     companyName: 'Acme Inc.',
     description: 'Building stuff',
+    category: 'food',
     id: 1
   },
   {
     img: image1,
     companyName: 'Acme Inc.',
     description: 'Building stuff',
+    category: 'food',
     id: 2
   },
   {
     img: image2,
     companyName: 'Acme Inc.',
     description: 'Building stuff',
+    category: 'food',
     id: 3
+  },
+  {
+    img: intuitDev,
+    companyName: 'Acme Inc.',
+    description: 'Building stuff',
+    category: 'food',
+    id: 4
+  },
+  {
+    img: image1,
+    companyName: 'Acme Inc.',
+    description: 'Building stuff',
+    category: 'food',
+    id: 6
+  },
+  {
+    img: image2,
+    companyName: 'Acme Inc.',
+    description: 'Building stuff',
+    id: 6
   }
 ];
