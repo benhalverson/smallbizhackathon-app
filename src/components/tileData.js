@@ -41,7 +41,7 @@ export const mailFolderListItems = (
       <ListItemIcon>
       <StarIcon />
       </ListItemIcon>
-      <Link  style={{ textDecoration: 'none' }} to="/about">
+      <Link  style={{ textDecoration: 'none' }} to="/requests">
       <ListItemText primary="Requests" />
       </Link> 
     </ListItem>  
@@ -49,7 +49,7 @@ export const mailFolderListItems = (
       <ListItemIcon>
         <StarIcon />
       </ListItemIcon>
-      <Link  style={{ textDecoration: 'none' }} to="/about">
+      <Link  style={{ textDecoration: 'none' }} to="/accounting">
       <ListItemText primary="Accounting" /></Link> 
     </ListItem>
     <ListItem button>
@@ -75,7 +75,7 @@ export const otherMailFolderListItems = (
       <ListItemIcon>
       <StarIcon />
       </ListItemIcon>
-      <Link style={{ textDecoration: 'none' }} to="/about">
+      <Link style={{ textDecoration: 'none' }} to="/history">
         <ListItemText primary="My History" />
         </Link> 
     </ListItem  >

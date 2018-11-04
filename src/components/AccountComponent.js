@@ -35,7 +35,7 @@ const styles = {
 };
 
 
-class Requests extends React.Component {
+class Accounting extends React.Component {
   state = {
     anchorEl: null,
     mobileMoreAnchorEl: null,
@@ -80,9 +80,8 @@ let value=1;
     }
   };
   
-  Requests.propTypes = {
+Accounting.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Requests);
- 
+export default withStyles(styles)(Accounting);

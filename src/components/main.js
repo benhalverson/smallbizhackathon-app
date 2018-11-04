@@ -28,25 +28,13 @@ import Homecards from './homecards';
 import   About   from './about';
 import   Sponsors   from './Sponsors';
 import   Search   from './SearchComponent';
-
+import   Requests   from './Requests';
+import   Accounting   from './AccountComponent';
+import   History   from './historyComponent';
+// import   Requests   from './Requests';
 import { createMuiTheme } from '@material-ui/core/styles';
 
-const theme = createMuiTheme({
-  palette: {
-    primary: {
-      light: '#757ce8',
-      main: '#3f50b5',
-      dark: '#002884',
-      contrastText: '#fff',
-    },
-    secondary: {
-      light: '#ff7961',
-      main: '#f44336',
-      dark: '#ba000d',
-      contrastText: '#000',
-    },
-  },
-});
+ 
 
 const styles = theme => ({
   root: {
@@ -141,10 +129,7 @@ class MainAppBar extends React.Component {
     });
   };
 
-  constructor(props) {
-    super(props)
-    // this.goHome = this.goHome.bind(this)
-  }
+  
 
   handleProfileMenuOpen = event => {
     this.setState({ anchorEl: event.currentTarget });
@@ -334,7 +319,11 @@ const sideList = (
        <Route exact={true} path="/" component={Homecards} />
          <Route exact={true} path="/home" component={Homecards} />
       <Route exact={true} path="/about" component={About} />
-       <Route exact={true} path="/sponsors" component={Sponsors} />
+       <Route exact={true} path="/sponsors" component={Sponsors} /> 
+       <Route exact={true} path="/accounting" component={Accounting} />  
+       <Route exact={true} path="/history" component={History} />
+       {/* <Route exact={true} path="/sponsors" component={Sponsors} /> */}
+       <Route exact={true} path="/requests" component={Requests} />
        <Route exact={true} path="/search" component={Search} />
          </MainCard> 
       </div>
