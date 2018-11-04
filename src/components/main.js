@@ -23,7 +23,7 @@ import Button from '@material-ui/core/Button';
 import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 import { mailFolderListItems, otherMailFolderListItems } from './tileData';
-import { BrowserRouter as Router, withRouter, Route, Link } from "react-router-dom";
+import { browserHistory , BrowserRouter as Router,  Route, Link } from "react-router-dom";
 import Homecards from './homecards';
 import   About   from './about';
 import   Sponsors   from './Sponsors';
@@ -32,7 +32,9 @@ import   Requests   from './Requests';
 import   Accounting   from './AccountComponent';
 import   History   from './historyComponent';
 // import   Requests   from './Requests';
-import { createMuiTheme } from '@material-ui/core/styles';
+// import { createMuiTheme } from '@material-ui/core/styles';
+
+// import { withRouter } from 'react-router';
 
  
 
@@ -155,9 +157,11 @@ class MainAppBar extends React.Component {
 
   handleSearchClick = () =>  {
     console.log("searchclick");
-    this.setState({redirect: true});
-    this.history.push('/');
+    // this.setState({redirect: true});
+    // this.props.history.push("/home");
+    // this.props.router.push('/');
     // this.context.router.push('/search');
+    // browserHistory.push('/');
   }
 
   
@@ -269,13 +273,13 @@ const sideList = (
             <Typography className={classes.title}   color="inherit" noWrap>
             <Link className={classes.title} to="/" style={{ textDecoration: 'none', color:'white', fontSize: "2em" }} >  { title} </Link>
             </Typography>
-            <div><Link to= "/search" style={{ textDecoration: 'none' }} >   search</Link></div>
+            <div><Link to= "/search" style={{ textDecoration: 'none', color: "red" }} >   search</Link></div>
             <div className={classes.search}>
               <div className={classes.searchIcon}>
                <SearchIcon />  
               </div>
               <Input
-                
+               onClick={this.handleSearchClick}
                 placeholder="Search…"
                 disableUnderline
                 classes={{

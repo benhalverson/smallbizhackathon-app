@@ -231,7 +231,7 @@ class MediaCard extends React.Component {
           </Typography>
 
            {/* {[1,2,3].map(value => ( */}
-        <ListItem key={value} dense button>
+        <ListItem key={searchResults[0].id} dense button>
               <Avatar alt="Remy Sharp" src={"./images/img2.jpg"}    />
               <ListItemText primary={<span>`Line item ${value + 1}` <p>halo</p>  <h3>test</h3> </span>} />
                 
