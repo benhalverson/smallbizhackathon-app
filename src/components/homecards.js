@@ -22,130 +22,169 @@ import Payment from '@material-ui/icons/Payment';
 import RemoveCircle from '@material-ui/icons/RemoveCircle';
 import AddCircle from '@material-ui/icons/AddCircle';
 
-
 const styles = {
-  
   card: {
-    Width: 1000,
+    Width: 1000
   },
   media: {
-    height: 140,
-  },
+    height: 140
+  }
 };
 
+function toggle(props) {
+  if (this.props.hide === 2) {
+    const hidden = document.getElementById('hide');
+    hidden.style.display = 'none';
+  } else {
+    const hidden = document.getElementById('hide');
+    hidden.style.display = 'block';
+  }
+}
 function MediaCard(props) {
   const { classes } = props;
   return (
     <div>
       <h3>Status:</h3>
-     <Grid container direction="column"
-  justify="center"
-  alignItems="center"
-  className={classes.root} spacing={16} cols="1">
-        <Grid item key='1'  >
-    <Card className={classes.card}>
-      <CardActionArea>
-        {/* <CardMedia
+      <Grid
+        container
+        direction="column"
+        justify="center"
+        alignItems="center"
+        className={classes.root}
+        spacing={16}
+        cols="1"
+      >
+        <Grid item key="1">
+          <Card className={classes.card}>
+            <CardActionArea>
+              {/* <CardMedia
           className={classes.media}
           image="https://material-ui.com/static/images/cards/contemplative-reptile.jpg"
           title="Contemplative Reptile"
         /> */}
-        <CardContent>
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="h2">
+                  Sponsor Requests
+                </Typography>
+                <Typography component="p">
+                  New sponsor requests from small business promoters : like
+                  events, NPO and other SMBs
+                </Typography>
 
-          <Typography gutterBottom variant="h5" component="h2">
-            Sponsor Requests
-          </Typography>
-          <Typography component="p">
-           New sponsor requests from small business promoters : like events, NPO and other SMBs
-          </Typography>
+                {[1, 2, 3].map(value => (
+                  <ListItem key={value} dense button>
+                    <Avatar
+                      alt="Remy Sharp"
+                      src={'http://lorempixel.com/200/200/people/' + value}
+                    />
+                    <ListItemText
+                      primary={
+                        <span>
+                          `Line item ${value + 1}` <p>halo</p> <h3>test</h3>{' '}
+                        </span>
+                      }
+                    />
 
-           {[1,2,3].map(value => (
-        <ListItem key={value} dense button>
-              <Avatar alt="Remy Sharp" src={"http://lorempixel.com/200/200/people/"+ value}    />
-              <ListItemText primary={<span>`Line item ${value + 1}` <p>halo</p>  <h3>test</h3> </span>} />
-                
-              <ListItemSecondaryAction>
-           {/* if(value  == 2){  */}
-                 <ListItemIcon   style={{color: '#0066ff',   }} aria-label="Comments">
-                  <AddCircle />
-                </ListItemIcon>  
-                {/* }
+                    <ListItemSecondaryAction>
+                      {/* if(value  == 2){  */}
+                      <ListItemIcon
+                        hide={toggle}
+                        id="hide"
+                        style={{ color: '#0066ff' }}
+                        aria-label="Comments"
+                      >
+                        <AddCircle />
+                      </ListItemIcon>
+                      {/* }
                 else{               */}
-                <ListItemIcon   style={{color: '#ff3d00',}} aria-label="Comments">
-                  <RemoveCircle />
-                </ListItemIcon>
-                {/* } */}
-              </ListItemSecondaryAction>
-            </ListItem>
-          ) )}
-        </CardContent>
-      </CardActionArea>
-      <CardActions>
-        {/* <Button size="small" color="primary">
+                      <ListItemIcon
+                        style={{ color: '#ff3d00' }}
+                        aria-label="Comments"
+                      >
+                        <RemoveCircle />
+                      </ListItemIcon>
+                      {/* } */}
+                    </ListItemSecondaryAction>
+                  </ListItem>
+                ))}
+              </CardContent>
+            </CardActionArea>
+            <CardActions>
+              {/* <Button size="small" color="primary">
           Share
         </Button> */}
-        {/* <Button size="small" color="primary">
+              {/* <Button size="small" color="primary">
           Learn More
         </Button> */}
-      </CardActions>
-    </Card>   
-     </Grid>
+            </CardActions>
+          </Card>
+        </Grid>
 
-       <Grid item key='2'  >
-       <Card className={classes.card}>
-      <CardActionArea>
-        {/* <CardMedia
+        <Grid item key="2">
+          <Card className={classes.card}>
+            <CardActionArea>
+              {/* <CardMedia
           className={classes.media}
           image="https://material-ui.com/static/images/cards/contemplative-reptile.jpg"
           title="Contemplative Reptile"
         /> */}
-        <CardContent>
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="h2">
+                  Applied to Promoters:
+                </Typography>
+                <Typography component="p">
+                  Status of your applications to Promoters of your interest.
+                </Typography>
 
-          <Typography gutterBottom variant="h5" component="h2">
-            Applied to Promoters:
-          </Typography>
-          <Typography component="p">
-            Status of your applications to Promoters of your interest.
-          </Typography>
+                {[1, 2, 3].map(value => (
+                  <ListItem key={value} dense button>
+                    <Avatar
+                      alt="Remy Sharp"
+                      src={'http://lorempixel.com/200/200/people/' + value}
+                    />
+                    <ListItemText
+                      primary={
+                        <span>
+                          `Line item ${value + 1}` <p>halo</p> <h3>test</h3>{' '}
+                        </span>
+                      }
+                    />
 
-           {[1,2,3].map(value => (
-        <ListItem key={value} dense button>
-              <Avatar alt="Remy Sharp" src={"http://lorempixel.com/200/200/people/"+ value}    />
-              <ListItemText primary={<span>`Line item ${value + 1}` <p>halo</p>  <h3>test</h3> </span>} />
-                
-              <ListItemSecondaryAction>
-                
-                 <ListItemIcon   style={{color: '#0066ff',   }} aria-label="Comments">
-                  <Payment />
-                </ListItemIcon>                
-                <ListItemIcon   style={{color: '#ff3d00',}} aria-label="Comments">
-                  <RemoveCircle />
-                </ListItemIcon>
-
-              </ListItemSecondaryAction>
-            </ListItem>
-          ) )}
-        </CardContent>
-      </CardActionArea>
-      <CardActions>
-        {/* <Button size="small" color="primary">
+                    <ListItemSecondaryAction>
+                      <ListItemIcon
+                        style={{ color: '#0066ff' }}
+                        aria-label="Comments"
+                      >
+                        <Payment />
+                      </ListItemIcon>
+                      <ListItemIcon
+                        style={{ color: '#ff3d00' }}
+                        aria-label="Comments"
+                      >
+                        <RemoveCircle />
+                      </ListItemIcon>
+                    </ListItemSecondaryAction>
+                  </ListItem>
+                ))}
+              </CardContent>
+            </CardActionArea>
+            <CardActions>
+              {/* <Button size="small" color="primary">
           Share
         </Button> */}
-        {/* <Button size="small" color="primary">
+              {/* <Button size="small" color="primary">
           Learn More
         </Button> */}
-      </CardActions>
-    </Card> 
-     </Grid>
-
-       
-            </Grid>
-            </div>
+            </CardActions>
+          </Card>
+        </Grid>
+      </Grid>
+    </div>
   );
 }
 
 MediaCard.propTypes = {
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired
 };
 
 export default withStyles(styles)(MediaCard);
