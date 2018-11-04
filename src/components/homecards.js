@@ -23,6 +23,15 @@ import RemoveCircle from '@material-ui/icons/RemoveCircle';
 import AddCircle from '@material-ui/icons/AddCircle';
 import {searchResults} from './searchResults';
 
+
+
+// import Button from '@material-ui/core/Button';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
+
 // const styles = {
 //   card: {
 //     Width: 1000
@@ -59,13 +68,23 @@ const styles = theme => ({
 class MediaCard extends React.Component {
 
   state = {
-    searchResults 
-    // open: false, 
+    searchResults ,
+    open: false, 
   };
+
+  handleClickOpen = () => {
+    this.setState({ open: true });
+  };
+
+  handleClose = () => {
+    this.setState({ open: false });
+  };
+
 
     handleAcceptRequest = () => {
     console.log('addCirlce Clicked');
     this.setState ({searchResults: searchResults.shift()});
+    this.setState({ open: true });
   };
   
 // function MediaCard(props) {
@@ -75,6 +94,28 @@ class MediaCard extends React.Component {
   return (
     <div>
       <h3>Updates</h3>
+      <Dialog
+          open={this.state.open}
+          onClose={this.handleClose}
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description"
+        >
+          <DialogTitle id="alert-dialog-title">{"Sponsor Request Accepted"}</DialogTitle>
+          <DialogContent>
+            <DialogContentText id="alert-dialog-description">
+             Your Payment is on the Way to your Promoter!
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            {/* <Button onClick={this.handleClose} color="primary">
+              Disagree
+            </Button> */}
+            <Button onClick={this.handleClose} color="primary" autoFocus>
+              Ok
+            </Button>
+          </DialogActions>
+        </Dialog>
+
      <Grid container direction="column"
   justify="center"
   alignItems="center"
@@ -97,7 +138,7 @@ class MediaCard extends React.Component {
                 </Typography>
 
                 {searchResults.map(value => (
-                  <ListItem key={value.id} dense button   activeClassName={classes.active} >
+                  <ListItem key={value.id} dense button     >
                     <Avatar
                       alt="Remy Sharp"
                       src={'http://lorempixel.com/200/200/people/' + value}
