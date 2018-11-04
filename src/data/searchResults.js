@@ -21,5 +21,23 @@ export const searchResults = [
     companyName: 'Acme Inc.',
     description: 'Building stuff',
     id: 3
+  },
+  {
+    img: intuitDev,
+    companyName: 'Acme Inc.',
+    description: 'Building stuff',
+    id: 4
+  },
+  {
+    img: image1,
+    companyName: 'Acme Inc.',
+    description: 'Building stuff',
+    id: 6
+  },
+  {
+    img: image2,
+    companyName: 'Acme Inc.',
+    description: 'Building stuff',
+    id: 6
   }
 ];
