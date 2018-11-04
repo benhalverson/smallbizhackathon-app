@@ -10,6 +10,9 @@ import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import CommentIcon from '@material-ui/icons/Comment';
 
+import AddCircle from '@material-ui/icons/AddCircle';
+import RemoveCircle from '@material-ui/icons/RemoveCircle';
+
 
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -51,18 +54,20 @@ let value=1;
          <Card className={classes.card} >
          {[1,2,3].map(value => (
         <ListItem key={value} dense button>
-              <Avatar alt="Remy Sharp" src="https://via.placeholder.com/150/0000FF/808080 ?Text=Digital.com
-
-C/O https://placeholder.com/ " />
-              <ListItemText primary={`Line item ${value + 1}`} />
-              <ListItemText secondory={`Line itemffff ${value + 3}`} />
+              <Avatar alt="Remy Sharp" src={"http://lorempixel.com/200/200/people/"+ value}    />
+              <ListItemText primary={<span>`Line item ${value + 1}` <p>halo</p>  <h3>test</h3> </span>} />
+               
               <ListItemSecondaryAction>
-                <Checkbox
+                {/* <Checkbox 
                   // onChange={this.handleToggle(value)}
                   // checked={this.state.checked.indexOf(value) !== -1}
-                />
-                 <IconButton aria-label="Comments">
-                  <CommentIcon />
+                //> 
+                */}
+                 <IconButton fontSize="large" style={{color: '#0066ff',   }} aria-label="Accept">
+                  <AddCircle />
+                </IconButton>
+                <IconButton fontSize="large" style={{color: '#ff3d00', }} aria-label="Deny">
+                  <RemoveCircle/>
                 </IconButton>
 
               </ListItemSecondaryAction>

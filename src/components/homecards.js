@@ -10,11 +10,23 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 
+// import List from '@material-ui/core/List';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
+import ListItemText from '@material-ui/core/ListItemText';
+import Avatar from '@material-ui/core/Avatar';
+import IconButton from '@material-ui/core/IconButton';
+
+import Payment from '@material-ui/icons/Payment';
+import RemoveCircle from '@material-ui/icons/RemoveCircle';
+import AddCircle from '@material-ui/icons/AddCircle';
+
 
 const styles = {
   
   card: {
-    maxWidth: 345,
+    Width: 1000,
   },
   media: {
     height: 140,
@@ -24,103 +36,111 @@ const styles = {
 function MediaCard(props) {
   const { classes } = props;
   return (
-     <Grid container justify="center" className={classes.root} spacing={16}>
+    <div>
+      <h3>Status:</h3>
+     <Grid container direction="column"
+  justify="center"
+  alignItems="center"
+  className={classes.root} spacing={16} cols="1">
         <Grid item key='1'  >
     <Card className={classes.card}>
       <CardActionArea>
-        <CardMedia
+        {/* <CardMedia
           className={classes.media}
           image="https://material-ui.com/static/images/cards/contemplative-reptile.jpg"
           title="Contemplative Reptile"
-        />
+        /> */}
         <CardContent>
+
           <Typography gutterBottom variant="h5" component="h2">
-            RF/EMI Shielding: 30+
+            Sponsor Requests
           </Typography>
           <Typography component="p">
-            Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-            across all continents except Antarctica
+           New sponsor requests from small business promoters : like events, NPO and other SMBs
           </Typography>
+
+           {[1,2,3].map(value => (
+        <ListItem key={value} dense button>
+              <Avatar alt="Remy Sharp" src={"http://lorempixel.com/200/200/people/"+ value}    />
+              <ListItemText primary={<span>`Line item ${value + 1}` <p>halo</p>  <h3>test</h3> </span>} />
+                
+              <ListItemSecondaryAction>
+           {/* if(value  == 2){  */}
+                 <ListItemIcon   style={{color: '#0066ff',   }} aria-label="Comments">
+                  <AddCircle />
+                </ListItemIcon>  
+                {/* }
+                else{               */}
+                <ListItemIcon   style={{color: '#ff3d00',}} aria-label="Comments">
+                  <RemoveCircle />
+                </ListItemIcon>
+                {/* } */}
+              </ListItemSecondaryAction>
+            </ListItem>
+          ) )}
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary">
+        {/* <Button size="small" color="primary">
           Share
-        </Button>
-        <Button size="small" color="primary">
+        </Button> */}
+        {/* <Button size="small" color="primary">
           Learn More
-        </Button>
+        </Button> */}
       </CardActions>
     </Card>   
      </Grid>
 
        <Grid item key='2'  >
-    <Card className={classes.card}>
+       <Card className={classes.card}>
       <CardActionArea>
-        <CardMedia
+        {/* <CardMedia
           className={classes.media}
           image="https://material-ui.com/static/images/cards/contemplative-reptile.jpg"
           title="Contemplative Reptile"
-        />
+        /> */}
         <CardContent>
+
           <Typography gutterBottom variant="h5" component="h2">
-            Geography: 20 cities, 5 contries
+            Applied to Promoters:
           </Typography>
           <Typography component="p">
-           Multi-National Projects were successfuly completed and Delivered to clients across countries such as
-
-Thailand
-
-Laos
-
-Benin
-
-Mauritius
-
-and so on
+            Status of your applications to Promoters of your interest.
           </Typography>
+
+           {[1,2,3].map(value => (
+        <ListItem key={value} dense button>
+              <Avatar alt="Remy Sharp" src={"http://lorempixel.com/200/200/people/"+ value}    />
+              <ListItemText primary={<span>`Line item ${value + 1}` <p>halo</p>  <h3>test</h3> </span>} />
+                
+              <ListItemSecondaryAction>
+                
+                 <ListItemIcon   style={{color: '#0066ff',   }} aria-label="Comments">
+                  <Payment />
+                </ListItemIcon>                
+                <ListItemIcon   style={{color: '#ff3d00',}} aria-label="Comments">
+                  <RemoveCircle />
+                </ListItemIcon>
+
+              </ListItemSecondaryAction>
+            </ListItem>
+          ) )}
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary">
+        {/* <Button size="small" color="primary">
           Share
-        </Button>
-        <Button size="small" color="primary">
+        </Button> */}
+        {/* <Button size="small" color="primary">
           Learn More
-        </Button>
+        </Button> */}
       </CardActions>
-    </Card>   
+    </Card> 
      </Grid>
 
-       <Grid item  >
-    <Card className={classes.card}>
-      <CardActionArea>
-        <CardMedia
-          className={classes.media}
-          image="https://material-ui.com/static/images/cards/contemplative-reptile.jpg"
-          title="Contemplative Reptile"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-            Customers Satisfaction
-          </Typography>
-          <Typography component="p">
-            Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-            across all continents except Antarctica
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-      <CardActions>
-        <Button size="small" color="primary">
-          Share
-        </Button>
-        <Button size="small" color="primary">
-          Learn More
-        </Button>
-      </CardActions>
-    </Card>   
-     </Grid>
+       
             </Grid>
+            </div>
   );
 }
 

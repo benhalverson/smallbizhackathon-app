@@ -14,43 +14,49 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import ReportIcon from '@material-ui/icons/Report';
 import {   Link } from "react-router-dom";
  
+const styles ={
+  
+}
+
 export const mailFolderListItems = (
    <div> 
     <ListItem button>
      
       <ListItemIcon>
-        <InboxIcon />
+      <StarIcon />
       </ListItemIcon>
-      <Link to="/home">
+      <Link  style={{ textDecoration: 'none' }}  to="/home">
       <ListItemText primary="Home" /></Link>      
     </ListItem>
    
     <ListItem button>
       <ListItemIcon>
-        <SendIcon />
+      <StarIcon />
       </ListItemIcon>
-       <Link to="/Sponsors">
+      <Link  style={{ textDecoration: 'none' }}  to="/Sponsors"> 
        <ListItemText primary="Sponsors" />
        </Link> 
     </ListItem>
     <ListItem button>
       <ListItemIcon>
-        <DraftsIcon />
+      <StarIcon />
       </ListItemIcon>
+      <Link  style={{ textDecoration: 'none' }} to="/about">
       <ListItemText primary="Requests" />
+      </Link> 
     </ListItem>  
     <ListItem button>
       <ListItemIcon>
         <StarIcon />
       </ListItemIcon>
-      <Link to="/about">
+      <Link  style={{ textDecoration: 'none' }} to="/about">
       <ListItemText primary="Accounting" /></Link> 
     </ListItem>
     <ListItem button>
       <ListItemIcon>
         <StarIcon />
       </ListItemIcon>
-      <Link to="/about">
+      <Link  style={{ textDecoration: 'none' }}  to="/about">
       <ListItemText primary="Help" /></Link> 
     </ListItem>
   </div> 
@@ -65,18 +71,20 @@ export const otherMailFolderListItems = (
   //     <ListItemText primary="Home" /></Link>
   //       </ListItemLink>
  */}
-    <ListItemLink   >
+     <ListItem button>
       <ListItemIcon>
-        <MailIcon />
+      <StarIcon />
       </ListItemIcon>
-      <ListItemText primary="My History" />
-    </ListItemLink >
+      <Link style={{ textDecoration: 'none' }} to="/about">
+        <ListItemText primary="My History" />
+        </Link> 
+    </ListItem  >
 
     <ListItem button>
       <ListItemIcon>
         <StarIcon />
       </ListItemIcon>
-      <Link to="/about">
+      <Link style={{ textDecoration: 'none' }} to="/about">
       <ListItemText primary="Goto Events" /></Link> 
     </ListItem>
   </div>

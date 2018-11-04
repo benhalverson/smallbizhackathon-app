@@ -175,6 +175,9 @@ class MainAppBar extends React.Component {
     // this.context.router.push('/search');
   }
 
+  
+
+
   render() { 
     
     const { anchorEl, mobileMoreAnchorEl } = this.state;
