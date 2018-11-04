@@ -70,6 +70,7 @@ class MediaCard extends React.Component {
   state = {
     searchResults ,
     open: false, 
+    openPay: false,
   };
 
   handleClickOpen = () => {
@@ -77,9 +78,14 @@ class MediaCard extends React.Component {
   };
 
   handleClose = () => {
-    this.setState({ open: false });
+    this.setState({ open: false , openPay: false });
   };
 
+  handleAcceptPay = () => {
+    console.log('acceptPay Clicked');
+    // this.setState ({searchResults: searchResults.shift()});
+    this.setState({ openPay: true });
+  };
 
     handleAcceptRequest = () => {
     console.log('addCirlce Clicked');
@@ -116,6 +122,27 @@ class MediaCard extends React.Component {
           </DialogActions>
         </Dialog>
 
+ <Dialog
+          open={this.state.openPay}
+          onClose={this.handleClose}
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description"
+        >
+          <DialogTitle id="alert-dialog-title">{"  Payment For  Accepted Promo"}</DialogTitle>
+          <DialogContent>
+            <DialogContentText id="alert-dialog-description">
+             Your Payment is on the Way to your Promoter!
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            {/* <Button onClick={this.handleClose} color="primary">
+              Disagree
+            </Button> */}
+            <Button onClick={this.handleClose} color="primary" autoFocus>
+              Ok
+            </Button>
+          </DialogActions>
+        </Dialog>
      <Grid container direction="column"
   justify="center"
   alignItems="center"
@@ -227,7 +254,7 @@ class MediaCard extends React.Component {
               <ListItemSecondaryAction>
                 
                  <ListItemIcon   style={{color: '#0066ff',   }} aria-label="Comments">
-                  <Payment />
+                  <Payment onClick={this.handleAcceptPay}/>
                 </ListItemIcon>                
                 {/* <ListItemIcon   style={{color: '#ff3d00',}} aria-label="Comments">
                   <RemoveCircle />
