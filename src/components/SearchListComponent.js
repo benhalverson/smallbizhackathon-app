@@ -8,8 +8,7 @@ import GridListTileBar from '@material-ui/core/GridListTileBar';
 import IconButton from '@material-ui/core/IconButton';
 import { searchResults } from './searchResults';
 // import {Button} from '@material-ui/core/Button';
-import AddCircle  from '@material-ui/icons/AddCircle';
-
+import AddCircle from '@material-ui/icons/AddCircle';
 
 const styles = theme => ({
   root: {
@@ -20,11 +19,10 @@ const styles = theme => ({
     backgroundColor: theme.palette.background.paper
   },
   gridList: {
-    width: "80%",
-     
+    width: '80%'
   },
-  GridListTile :{
-    padding:20,
+  GridListTile: {
+    padding: 20
   },
   icon: {
     color: 'rgba(255, 255, 255, 0.54)'
@@ -36,24 +34,35 @@ function SearchListComponent(props) {
 
   return (
     <div className={classes.root}>
-   
-      <GridList   cellHeight={180} spacing={15} className={classes.gridList} cols={2}>
-        <GridListTile key="Subheader" cols={2} style={{  height: 'auto' }}>
-         {/*<ListSubheader component="div">Results</ListSubheader> */} 
+      <GridList
+        cellHeight={180}
+        spacing={15}
+        className={classes.gridList}
+        cols={2}
+      >
+        <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}>
+          {/*<ListSubheader component="div">Results</ListSubheader> */}
         </GridListTile>
         {searchResults.map(tile => (
           <GridListTile key={tile.id}>
-            <img src={tile.img} alt={tile.companyName} style={{ width:"80", height: '100%' }} />
+            <img
+              src={tile.img}
+              alt={tile.companyName}
+              style={{ width: '80', height: '100%' }}
+            />
             <GridListTileBar
-            title={tile.title}
-            subtitle={<span><h4>Test</h4>by: {tile.author}</span>} 
+              title={tile.title}
+              subtitle={
+                <span>
+                  <h4>Test</h4>
+                  by: {tile.author}
+                </span>
+              }
               description={tile.description}
               actionIcon={
-                
                 <IconButton className={classes.icon}>
-                <AddCircle />
+                  <AddCircle />
                 </IconButton>
-                 
               }
             />
           </GridListTile>

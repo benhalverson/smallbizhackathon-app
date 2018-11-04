@@ -9,6 +9,7 @@ import { withStyles } from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
 import Input from '@material-ui/core/Input';
 import SearchListComponent from './SearchListComponent';
+import { searchResults } from './searchResults';
 const styles = theme => ({
   root: {
     width: '100%'
@@ -54,8 +55,6 @@ class SearchComponent extends React.Component {
     const { classes, theme } = this.props;
     return (
       <div className={classes.search}>
-       
-       
         <div>
           <SearchListComponent />
         </div>
