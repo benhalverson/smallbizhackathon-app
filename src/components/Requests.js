@@ -44,7 +44,7 @@ class Requests extends React.Component {
     let value = 1;
     return (
       <div>
-        <h1>Sponsors</h1>
+        <h1>Sponsor Requests from Promoters</h1>
         <Card className={classes.card}>
           {[1, 2, 3].map(value => (
             <ListItem key={value} dense button>
