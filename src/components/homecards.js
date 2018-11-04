@@ -23,26 +23,54 @@ import RemoveCircle from '@material-ui/icons/RemoveCircle';
 import AddCircle from '@material-ui/icons/AddCircle';
 import {searchResults} from './searchResults';
 
-const styles = {
-  card: {
-    Width: 1000
-  },
-  media: {
-    height: 140
-  }
-};
+// const styles = {
+//   card: {
+//     Width: 1000
+//   },
+//   media: {
+//     height: 140
+//   }
+// };
 
-function toggle(props) {
-  if (this.props.hide === 2) {
-    const hidden = document.getElementById('hide');
-    hidden.style.display = 'none';
-  } else {
-    const hidden = document.getElementById('hide');
-    hidden.style.display = 'block';
+// function toggle(props) {
+//   if (this.props.hide === 2) {
+//     const hidden = document.getElementById('hide');
+//     hidden.style.display = 'none';
+//   } else {
+//     const hidden = document.getElementById('hide');
+//     hidden.style.display = 'block';
+//   }
+// }
+
+ 
+
+const styles = theme => ({
+  root: {
+    width: '100%',
+  },
+  grow: {
+    flexGrow: 1,
+  },
+  active: {
+    backgroundColor: theme.palette.action.selected
   }
-}
-function MediaCard(props) {
-  const { classes } = props;
+})
+
+class MediaCard extends React.Component {
+
+  state = {
+    searchResults 
+    // open: false, 
+  };
+
+    handleAcceptRequest = () => {
+    console.log('addCirlce Clicked');
+    this.setState ({searchResults: searchResults.shift()});
+  };
+  
+// function MediaCard(props) {
+  render(){
+  const { classes } = this.props;
   const value =1;
   return (
     <div>
@@ -68,8 +96,8 @@ function MediaCard(props) {
                   events, NPO and other SMBs
                 </Typography>
 
-                {[1, 2, 3].map(value => (
-                  <ListItem key={value} dense button>
+                {searchResults.map(value => (
+                  <ListItem key={value.id} dense button   activeClassName={classes.active} >
                     <Avatar
                       alt="Remy Sharp"
                       src={'http://lorempixel.com/200/200/people/' + value}
@@ -77,7 +105,7 @@ function MediaCard(props) {
                     <ListItemText
                       primary={
                         <span>
-                          `Line item ${value + 1}` <p>halo</p> <h3>test</h3>{' '}
+                           {value.companyName} <p>   {value.description} </p> <h3>  {value.category} </h3>{' '}
                         </span>
                       }
                     />
@@ -85,12 +113,12 @@ function MediaCard(props) {
                     <ListItemSecondaryAction>
                       {/* if(value  == 2){  */}
                       <ListItemIcon
-                        hide={toggle}
-                        id="hide"
+                        
+                         
                         style={{ color: '#0066ff' }}
                         aria-label="Comments"
                       >
-                        <AddCircle />
+                        <AddCircle onClick={this.handleAcceptRequest}/>
                       </ListItemIcon>
                       {/* }
                 else{               */}
@@ -126,13 +154,7 @@ function MediaCard(props) {
           title="Contemplative Reptile"
         /> */}
               <CardContent>
-                <Typography gutterBottom variant="h5" component="h2">
-                  Applied to Promoters:
-                </Typography>
-                <Typography component="p">
-                  Status of your applications to Promoters of your interest.
-                </Typography>
-
+                
           <Typography gutterBottom variant="h5" component="h2">
             Applied to Promoters:
           </Typography>
@@ -157,7 +179,7 @@ function MediaCard(props) {
               </ListItemSecondaryAction>
             </ListItem>
 
-             <ListItem key={value} dense button>
+             <ListItem key={value+1} dense button>
               <Avatar alt="Remy Sharp" src={"http://lorempixel.com/200/200/people/"+ value}    />
               <ListItemText primary={<span>`Line item ${value + 1}` <p>halo</p>  <h3>test</h3> </span>} />
                 
@@ -173,7 +195,7 @@ function MediaCard(props) {
               </ListItemSecondaryAction>
             </ListItem>
 
-             <ListItem key={value} dense button>
+             <ListItem key={value+2} dense button>
               <Avatar alt="Remy Sharp" src={"http://lorempixel.com/200/200/people/"+ value}    />
               <ListItemText primary={<span>`Line item ${value + 1}` <p>halo</p>  <h3>test</h3> </span>} />
                 
@@ -204,6 +226,7 @@ function MediaCard(props) {
       </Grid>
     </div>
   );
+}
 }
 
 MediaCard.propTypes = {
