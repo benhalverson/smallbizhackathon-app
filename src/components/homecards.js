@@ -37,7 +37,7 @@ function MediaCard(props) {
   const { classes } = props;
   return (
     <div>
-      <h3>Status:</h3>
+      <h3></h3>
      <Grid container direction="column"
   justify="center"
   alignItems="center"
@@ -67,12 +67,12 @@ function MediaCard(props) {
               <ListItemSecondaryAction>
            {/* if(value  == 2){  */}
                  <ListItemIcon   style={{color: '#0066ff',   }} aria-label="Comments">
-                  <AddCircle />
+                Accept
                 </ListItemIcon>  
                 {/* }
                 else{               */}
                 <ListItemIcon   style={{color: '#ff3d00',}} aria-label="Comments">
-                  <RemoveCircle />
+                  Deny
                 </ListItemIcon>
                 {/* } */}
               </ListItemSecondaryAction>

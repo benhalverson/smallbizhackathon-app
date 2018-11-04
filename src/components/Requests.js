@@ -64,10 +64,10 @@ let value=1;
                 //> 
                 */}
                  <IconButton fontSize="large" style={{color: '#0066ff',   }} aria-label="Accept">
-                  <AddCircle />
+                  Accept
                 </IconButton>
                 <IconButton fontSize="large" style={{color: '#ff3d00', }} aria-label="Deny">
-                  <RemoveCircle/>
+                  Deny
                 </IconButton>
 
               </ListItemSecondaryAction>

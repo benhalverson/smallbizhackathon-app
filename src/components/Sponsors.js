@@ -63,11 +63,12 @@ let value=1;
                   // checked={this.state.checked.indexOf(value) !== -1}
                 //> 
                 */}
-                 <IconButton fontSize="large" style={{color: '#0066ff',   }} aria-label="Accept">
-                  <AddCircle />
-                </IconButton>
+                 <button fontSize="large" style={{color: '#0066ff',   }} aria-label="Accept">
+                  <AddCircle />Accept
+                </button>
+            
                 <IconButton fontSize="large" style={{color: '#ff3d00', }} aria-label="Deny">
-                  <RemoveCircle/>
+                  <RemoveCircle/>Deny
                 </IconButton>
 
               </ListItemSecondaryAction>
