@@ -1,26 +1,25 @@
-const intuitDev =
-  'https://assets.qa-developer.intuit.com/wp-content/uploads/2016/09/Intuit-Developer_Vert_RGB-400x240.jpg';
-const image1 = 'http://svfilmfestival.com/images/svfftrophylogo_hr.jpg';
-const image2 =
+const intuitDev = 'http://www.smallbizhack.com/images/intuit-developer.svg';
+const filmFest = 'http://svfilmfestival.com/images/svfftrophylogo_hr.jpg';
+const google =
   'http://logok.org/wp-content/uploads/2015/09/Google-logo-2015-G-icon.png';
 
   export const searchResults = [
   {
     img: intuitDev,
-    companyName: 'Acme Inc.',
-    description: 'Building stuff',
-    category: 'food',
+    companyName: 'Intuit',
+    description: 'Makers of Quickbooks',
+    category: 'taxes',
     id: 1
   },
   {
-    img: image1,
+    img: filmFest,
     companyName: 'Togos Inc.',
     description: 'American food and stuff',
     category: 'food',
     id: 2
   },
   {
-    img: image2,
+    img: google,
     companyName: 'Tocobell Inc.',
     description: 'Mexican food and stuff',
     category: 'food',
@@ -34,14 +33,14 @@ const image2 =
     id: 4
   },
   {
-    img: image1,
+    img: filmFest,
     companyName: 'SMOG test Inc.',
     description: 'SMOG stuff',
     category: 'Auto',
     id: 5
   },
   {
-    img: image2,
+    img: google,
     companyName: 'Pet store Inc.',
     description: 'Pet stuff',
     id: 6
