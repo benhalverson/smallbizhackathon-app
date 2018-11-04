@@ -16,21 +16,23 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
- 
-
 import Drawer from '@material-ui/core/Drawer';
-import Button from '@material-ui/core/Button';
 import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 import { mailFolderListItems, otherMailFolderListItems } from './tileData';
-import { browserHistory , BrowserRouter as Router,  Route, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  withRouter,
+  Route,
+  Link
+} from 'react-router-dom';
 import Homecards from './homecards';
-import   About   from './about';
-import   Sponsors   from './Sponsors';
-import   Search   from './SearchComponent';
-import   Requests   from './Requests';
-import   Accounting   from './AccountComponent';
-import   History   from './historyComponent';
+import About from './about';
+import Sponsors from './Sponsors';
+import Search from './SearchComponent';
+import Requests from './Requests';
+import Accounting from './AccountComponent';
+import History from './historyComponent';
 // import   Requests   from './Requests';
 // import { createMuiTheme } from '@material-ui/core/styles';
 
@@ -40,42 +42,42 @@ import   History   from './historyComponent';
 
 const styles = theme => ({
   root: {
-    width: '100%',
+    width: '100%'
   },
   grow: {
-    flexGrow: 1,
+    flexGrow: 1
   },
   menuButton: {
     marginLeft: -12,
-    marginRight: 20,
+    marginRight: 20
   },
   title: {
     display: 'none',
     decorations: 'none',
     [theme.breakpoints.up('sm')]: {
-      display: 'block',
+      display: 'block'
     },
-      list: {
-    width: 250,
-  },
-  fullList: {
-    width: 'auto',
-  },
+    list: {
+      width: 250
+    },
+    fullList: {
+      width: 'auto'
+    }
   },
   search: {
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
     backgroundColor: fade(theme.palette.common.white, 0.15),
     '&:hover': {
-      backgroundColor: fade(theme.palette.common.white, 0.25),
+      backgroundColor: fade(theme.palette.common.white, 0.25)
     },
     marginRight: theme.spacing.unit * 2,
     marginLeft: 0,
     width: '100%',
     [theme.breakpoints.up('sm')]: {
       marginLeft: theme.spacing.unit * 3,
-      width: 'auto',
-    },
+      width: 'auto'
+    }
   },
   searchIcon: {
     width: theme.spacing.unit * 9,
@@ -84,11 +86,11 @@ const styles = theme => ({
     pointerEvents: 'none',
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
   inputRoot: {
     color: 'inherit',
-    width: '100%',
+    width: '100%'
   },
   inputInput: {
     paddingTop: theme.spacing.unit,
@@ -98,40 +100,38 @@ const styles = theme => ({
     transition: theme.transitions.create('width'),
     width: '100%',
     [theme.breakpoints.up('md')]: {
-      width: 200,
-    },
+      width: 200
+    }
   },
   sectionDesktop: {
     display: 'none',
     [theme.breakpoints.up('md')]: {
-      display: 'flex',
-    },
+      display: 'flex'
+    }
   },
   sectionMobile: {
     display: 'flex',
     [theme.breakpoints.up('md')]: {
-      display: 'none',
-    },
-  },
+      display: 'none'
+    }
+  }
 });
 
 class MainAppBar extends React.Component {
   state = {
     anchorEl: null,
     mobileMoreAnchorEl: null,
-    left: false, 
-    redirect:false,
-    // open: false, 
+    left: false,
+    redirect: false
+    // open: false,
   };
 
- toggleDrawer = (side, open) => () => {
+  toggleDrawer = (side, open) => () => {
     this.setState({
-      [side]: open,
+      [side]: open
       // open: open,
     });
   };
-
-  
 
   handleProfileMenuOpen = event => {
     this.setState({ anchorEl: event.currentTarget });
@@ -150,10 +150,9 @@ class MainAppBar extends React.Component {
     this.setState({ mobileMoreAnchorEl: null });
   };
 
- handleDrawerClose = () => {
+  handleDrawerClose = () => {
     this.setState({ open: false });
   };
- 
 
   handleSearchClick = () =>  {
     console.log("searchclick");
@@ -167,17 +166,16 @@ class MainAppBar extends React.Component {
   
 
 
-  render() { 
-    
+  render() {
     const { anchorEl, mobileMoreAnchorEl } = this.state;
     const { classes, theme } = this.props;
     const { anchor, open } = this.state;
     const title = 'SMBLE PROMO $5 ';
-     
+
     const isMenuOpen = Boolean(anchorEl);
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
-const sideList = (
+    const sideList = (
       <div className={classes.list}>
         <List>{mailFolderListItems}</List>
         <Divider />
@@ -193,7 +191,6 @@ const sideList = (
       </div>
     );
 
-    
     const renderMenu = (
       <Menu
         anchorEl={anchorEl}
@@ -217,7 +214,11 @@ const sideList = (
       >
         <MenuItem>
           <IconButton onClick={this.handleDrawerClose} color="inherit">
-            <Badge className={classes.margin} badgeContent={4} color="secondary">
+            <Badge
+              className={classes.margin}
+              badgeContent={4}
+              color="secondary"
+            >
               <MailIcon />
             </Badge>
           </IconButton>
@@ -225,7 +226,11 @@ const sideList = (
         </MenuItem>
         <MenuItem>
           <IconButton color="inherit">
-            <Badge className={classes.margin} badgeContent={11} color="secondary">
+            <Badge
+              className={classes.margin}
+              badgeContent={11}
+              color="secondary"
+            >
               <NotificationsIcon />
             </Badge>
           </IconButton>
@@ -240,117 +245,145 @@ const sideList = (
       </Menu>
     );
 
-  
-
-
     return (
       <Router>
-      <div className={classes.root}>
-        <AppBar position="static">
-        
-         <Drawer open={this.state.left}  onClose={this.toggleDrawer('left', false)}>
-          <div
-            tabIndex={0}
-            role="button"
-            onClick={this.toggleDrawer('left', false)}
-            onKeyDown={this.toggleDrawer('left', false)}
-          >
-           <AppBar position="static">   
-           <Toolbar>
-            <Typography   color="inherit">
-            { title}
-          </Typography>  
-        </Toolbar>
-            </AppBar>
-            {sideList}
-          </div>
-        </Drawer>
-
-          <Toolbar>
-            <IconButton  onClick={this.toggleDrawer('left', true)} className={classes.menuButton} color="inherit" aria-label="Open drawer">
-              <MenuIcon />
-            </IconButton>
-            <Typography className={classes.title}   color="inherit" noWrap>
-            <Link className={classes.title} to="/" style={{ textDecoration: 'none', color:'white', fontSize: "2em" }} >  { title} </Link>
-            </Typography>
-            <div><Link to= "/search" style={{ textDecoration: 'none', color: "red" }} >   search</Link></div>
-            <div className={classes.search}>
-              <div className={classes.searchIcon}>
-               <SearchIcon />  
-              </div>
-              <Input
-               onClick={this.handleSearchClick}
-                placeholder="Search…"
-                disableUnderline
-                classes={{
-                  root: classes.inputRoot,
-                  input: classes.inputInput,
-                }} 
-                 
-              />
-            </div>
-           
-            <div className={classes.grow} />
-            <div className={classes.sectionDesktop}>
-              <IconButton color="inherit">
-                <Badge className={classes.margin} badgeContent={4} color="secondary">
-                  <MailIcon />
-                </Badge>
-              </IconButton>
-              <IconButton color="inherit">
-                <Badge className={classes.margin} badgeContent={17} color="secondary">
-                  <NotificationsIcon />
-                </Badge>
-              </IconButton>
-              <IconButton
-                aria-owns={isMenuOpen ? 'material-appbar' : null}
-                aria-haspopup="true"
-                onClick={this.handleProfileMenuOpen}
-                color="inherit"
+        <div className={classes.root}>
+          <AppBar position="static">
+            <Drawer
+              open={this.state.left}
+              onClose={this.toggleDrawer('left', false)}
+            >
+              <div
+                tabIndex={0}
+                role="button"
+                onClick={this.toggleDrawer('left', false)}
+                onKeyDown={this.toggleDrawer('left', false)}
               >
-                <AccountCircle />
+                <AppBar position="static">
+                  <Toolbar>
+                    <Typography color="inherit">{title}</Typography>
+                  </Toolbar>
+                </AppBar>
+                {sideList}
+              </div>
+            </Drawer>
+
+            <Toolbar>
+              <IconButton
+                onClick={this.toggleDrawer('left', true)}
+                className={classes.menuButton}
+                color="inherit"
+                aria-label="Open drawer"
+              >
+                <MenuIcon />
               </IconButton>
-            </div>
-            <div className={classes.sectionMobile}>
-              <IconButton aria-haspopup="true" onClick={this.handleMobileMenuOpen} color="inherit">
-                <MoreIcon />
-              </IconButton>
-            </div>
-          </Toolbar>
-        </AppBar>
-        {renderMenu}
-        {renderMobileMenu}
-      <MainCard> 
-       <Route exact={true} path="/" component={Homecards} />
-         <Route exact={true} path="/home" component={Homecards} />
-      <Route exact={true} path="/about" component={About} />
-       <Route exact={true} path="/sponsors" component={Sponsors} /> 
-       <Route exact={true} path="/accounting" component={Accounting} />  
-       <Route exact={true} path="/history" component={History} />
-       {/* <Route exact={true} path="/sponsors" component={Sponsors} /> */}
-       <Route exact={true} path="/requests" component={Requests} />
-       <Route exact={true} path="/search" component={Search} />
-         </MainCard> 
-      </div>
+              <Typography className={classes.title} color="inherit" noWrap>
+                <Link
+                  className={classes.title}
+                  to="/"
+                  style={{
+                    textDecoration: 'none',
+                    color: 'white',
+                    fontSize: '2em'
+                  }}
+                >
+                  {' '}
+                  {title}{' '}
+                </Link>
+              </Typography>
+              <div>
+                <Link to="/search" style={{ textDecoration: 'none' }}>
+                  {' '}
+                  search
+                </Link>
+              </div>
+              <div className={classes.search}>
+                <div className={classes.searchIcon}>
+                  <SearchIcon />
+                </div>
+                <Input
+                  placeholder="Search…"
+                  disableUnderline
+                  classes={{
+                    root: classes.inputRoot,
+                    input: classes.inputInput
+                  }}
+                />
+              </div>
+
+              <div className={classes.grow} />
+              <div className={classes.sectionDesktop}>
+                <IconButton color="inherit">
+                  <Badge
+                    className={classes.margin}
+                    badgeContent={4}
+                    color="secondary"
+                  >
+                    <MailIcon />
+                  </Badge>
+                </IconButton>
+                <IconButton color="inherit">
+                  <Badge
+                    className={classes.margin}
+                    badgeContent={17}
+                    color="secondary"
+                  >
+                    <NotificationsIcon />
+                  </Badge>
+                </IconButton>
+                <IconButton
+                  aria-owns={isMenuOpen ? 'material-appbar' : null}
+                  aria-haspopup="true"
+                  onClick={this.handleProfileMenuOpen}
+                  color="inherit"
+                >
+                  <AccountCircle />
+                </IconButton>
+              </div>
+              <div className={classes.sectionMobile}>
+                <IconButton
+                  aria-haspopup="true"
+                  onClick={this.handleMobileMenuOpen}
+                  color="inherit"
+                >
+                  <MoreIcon />
+                </IconButton>
+              </div>
+            </Toolbar>
+          </AppBar>
+          {renderMenu}
+          {renderMobileMenu}
+          <MainCard>
+            <Route exact={true} path="/" component={Homecards} />
+            <Route exact={true} path="/home" component={Homecards} />
+            <Route exact={true} path="/about" component={About} />
+            <Route exact={true} path="/sponsors" component={Sponsors} />
+            <Route exact={true} path="/accounting" component={Accounting} />
+            <Route exact={true} path="/history" component={History} />
+            <Route exact={true} path="/requests" component={Requests} />
+            <Route exact={true} path="/search" component={Search} />
+          </MainCard>
+        </div>
       </Router>
     );
   }
 }
 
-
-const MainCard = (props) => (
+const MainCard = props => (
   // render={()=>(<h1>About Page</h1>)}
-  <div style ={{flex:1,
-  height: '100wh',
-  overflow: 'any'}}>
-<div  style ={{ paddiing: '20px'}} {...props}  />
+  <div
+    style={{
+      flex: 1,
+      height: '100wh',
+      overflow: 'any'
+    }}
+  >
+    <div style={{ paddiing: '20px' }} {...props} />
   </div>
-)
+);
 
 MainAppBar.propTypes = {
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles) (MainAppBar);
-
-  
+export default withStyles(styles)(MainAppBar);
