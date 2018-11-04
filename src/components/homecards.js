@@ -44,7 +44,7 @@ function MediaCard(props) {
   const { classes } = props;
   return (
     <div>
-      <h3>Status:</h3>
+      <h3 />
       <Grid
         container
         direction="column"

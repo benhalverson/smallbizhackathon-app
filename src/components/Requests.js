@@ -71,14 +71,14 @@ class Requests extends React.Component {
                   style={{ color: '#0066ff' }}
                   aria-label="Accept"
                 >
-                  <AddCircle /> test
+                  Accept
                 </IconButton>
                 <IconButton
                   fontSize="large"
                   style={{ color: '#ff3d00' }}
                   aria-label="Deny"
                 >
-                  <RemoveCircle />
+                  Deny
                 </IconButton>
               </ListItemSecondaryAction>
             </ListItem>
