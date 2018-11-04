@@ -24,13 +24,7 @@ export const mailFolderListItems = (
       <Link to="/home">
       <ListItemText primary="Home" /></Link>      
     </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <StarIcon />
-      </ListItemIcon>
-      <Link to="/about">
-      <ListItemText primary="Accounting" /></Link> 
-    </ListItem>
+   
     <ListItem button>
       <ListItemIcon>
         <SendIcon />
@@ -45,6 +39,13 @@ export const mailFolderListItems = (
       </ListItemIcon>
       <ListItemText primary="Requests" />
     </ListItem>  
+    <ListItem button>
+      <ListItemIcon>
+        <StarIcon />
+      </ListItemIcon>
+      <Link to="/about">
+      <ListItemText primary="Accounting" /></Link> 
+    </ListItem>
     <ListItem button>
       <ListItemIcon>
         <StarIcon />

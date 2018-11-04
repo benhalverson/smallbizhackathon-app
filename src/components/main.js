@@ -22,10 +22,30 @@ import Button from '@material-ui/core/Button';
 import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 import { mailFolderListItems, otherMailFolderListItems } from './tileData';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, withRouter, Route, Link } from "react-router-dom";
 import Homecards from './homecards';
 import   About   from './about';
 import   Sponsors   from './Sponsors';
+import   Search   from './SearchComponent';
+
+import { createMuiTheme } from '@material-ui/core/styles';
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      light: '#757ce8',
+      main: '#3f50b5',
+      dark: '#002884',
+      contrastText: '#fff',
+    },
+    secondary: {
+      light: '#ff7961',
+      main: '#f44336',
+      dark: '#ba000d',
+      contrastText: '#000',
+    },
+  },
+});
 
 const styles = theme => ({
   root: {
@@ -108,6 +128,7 @@ class MainAppBar extends React.Component {
     anchorEl: null,
     mobileMoreAnchorEl: null,
     left: false, 
+    redirect:false,
     // open: false, 
   };
 
@@ -118,7 +139,10 @@ class MainAppBar extends React.Component {
     });
   };
 
-  
+  constructor(props) {
+    super(props)
+    // this.goHome = this.goHome.bind(this)
+  }
 
   handleProfileMenuOpen = event => {
     this.setState({ anchorEl: event.currentTarget });
@@ -140,13 +164,17 @@ class MainAppBar extends React.Component {
  handleDrawerClose = () => {
     this.setState({ open: false });
   };
-
  
+
   handleSearchClick = () =>  {
     console.log("searchclick");
+    this.setState({redirect: true});
+    this.props.history.push('/');
+    // this.context.router.push('/search');
   }
 
-  render() {
+  render() { 
+    
     const { anchorEl, mobileMoreAnchorEl } = this.state;
     const { classes, theme } = this.props;
     const { anchor, open } = this.state;
@@ -251,10 +279,10 @@ const sideList = (
             <Typography className={classes.title}   color="inherit" noWrap>
                { title}
             </Typography>
-            
+            <div><Link to= "/search" >   search</Link></div>
             <div className={classes.search}>
               <div className={classes.searchIcon}>
-                <SearchIcon />
+               <SearchIcon />  
               </div>
               <Input
                 placeholder="Search…"
@@ -263,7 +291,7 @@ const sideList = (
                   root: classes.inputRoot,
                   input: classes.inputInput,
                 }} 
-                onClick={this.handleSearchClick  }
+                 
               />
             </div>
            
@@ -301,7 +329,8 @@ const sideList = (
        <Route exact={true} path="/" component={Homecards} />
          <Route exact={true} path="/home" component={Homecards} />
       <Route exact={true} path="/about" component={About} />
-       <Route exact={true} path="/Sponsors" component={Sponsors} />
+       <Route exact={true} path="/sponsors" component={Sponsors} />
+       <Route exact={true} path="/search" component={Search} />
          </MainCard> 
       </div>
       </Router>
@@ -323,4 +352,6 @@ MainAppBar.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(MainAppBar);
+export default withStyles(styles) (MainAppBar);
+
+  
