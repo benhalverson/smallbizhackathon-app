@@ -61,6 +61,7 @@ const styles = theme => ({
   },
   title: {
     display: 'none',
+    decorations: 'none',
     [theme.breakpoints.up('sm')]: {
       display: 'block',
     },
@@ -179,7 +180,7 @@ class MainAppBar extends React.Component {
     const { anchorEl, mobileMoreAnchorEl } = this.state;
     const { classes, theme } = this.props;
     const { anchor, open } = this.state;
-    const title = 'THE RENOVATES';
+    const title = 'SMBLE PROMO';
      
     const isMenuOpen = Boolean(anchorEl);
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -264,9 +265,9 @@ const sideList = (
           >
            <AppBar position="static">   
            <Toolbar>
-          <Typography   color="inherit">
+            <Typography   color="inherit">
             { title}
-          </Typography>
+          </Typography>  
         </Toolbar>
             </AppBar>
             {sideList}
@@ -278,9 +279,9 @@ const sideList = (
               <MenuIcon />
             </IconButton>
             <Typography className={classes.title}   color="inherit" noWrap>
-               { title}
+            <Link className={classes.title} to="/" style={{ textDecoration: 'none', color:'white', fontSize: "2em" }} >  { title} </Link>
             </Typography>
-            <div><Link to= "/search" >   search</Link></div>
+            <div><Link to= "/search" style={{ textDecoration: 'none' }} >   search</Link></div>
             <div className={classes.search}>
               <div className={classes.searchIcon}>
                <SearchIcon />  
