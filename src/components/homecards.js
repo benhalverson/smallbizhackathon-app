@@ -21,9 +21,7 @@ import IconButton from '@material-ui/core/IconButton';
 import Payment from '@material-ui/icons/Payment';
 import RemoveCircle from '@material-ui/icons/RemoveCircle';
 import AddCircle from '@material-ui/icons/AddCircle';
-import {searchResults} from './searchResults';
-
-
+import { searchResults } from './searchResults';
 
 // import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
@@ -51,26 +49,26 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 //   }
 // }
 
- 
-
 const styles = theme => ({
   root: {
-    width: '100%',
+    width: '100%'
   },
   grow: {
-    flexGrow: 1,
+    flexGrow: 1
   },
   active: {
     backgroundColor: theme.palette.action.selected
+  },
+  ul: {
+    'list-style-type': 'none'
   }
-})
+});
 
 class MediaCard extends React.Component {
-
   state = {
-    searchResults ,
-    open: false, 
-    openPay: false,
+    searchResults,
+    open: false,
+    openPay: false
   };
 
   handleClickOpen = () => {
@@ -78,7 +76,7 @@ class MediaCard extends React.Component {
   };
 
   handleClose = () => {
-    this.setState({ open: false , openPay: false });
+    this.setState({ open: false, openPay: false });
   };
 
   handleAcceptPay = () => {
@@ -87,29 +85,31 @@ class MediaCard extends React.Component {
     this.setState({ openPay: true });
   };
 
-    handleAcceptRequest = () => {
+  handleAcceptRequest = () => {
     console.log('addCirlce Clicked');
-    this.setState ({searchResults: searchResults.shift()});
+    this.setState({ searchResults: searchResults.shift() });
     this.setState({ open: true });
   };
-  
-// function MediaCard(props) {
-  render(){
-  const { classes } = this.props;
-  const value =1;
-  return (
-    <div>
-      <h3>Updates</h3>
-      <Dialog
+
+  // function MediaCard(props) {
+  render() {
+    const { classes } = this.props;
+    const value = 1;
+    return (
+      <div>
+        <h3>Updates</h3>
+        <Dialog
           open={this.state.open}
           onClose={this.handleClose}
           aria-labelledby="alert-dialog-title"
           aria-describedby="alert-dialog-description"
         >
-          <DialogTitle id="alert-dialog-title">{"Sponsor Request Accepted"}</DialogTitle>
+          <DialogTitle id="alert-dialog-title">
+            {'Sponsor Request Accepted'}
+          </DialogTitle>
           <DialogContent>
             <DialogContentText id="alert-dialog-description">
-             Your Payment is on the Way to your Promoter!
+              Your Payment is on the Way to your Promoter!
             </DialogContentText>
           </DialogContent>
           <DialogActions>
@@ -122,16 +122,18 @@ class MediaCard extends React.Component {
           </DialogActions>
         </Dialog>
 
- <Dialog
+        <Dialog
           open={this.state.openPay}
           onClose={this.handleClose}
           aria-labelledby="alert-dialog-title"
           aria-describedby="alert-dialog-description"
         >
-          <DialogTitle id="alert-dialog-title">{"  Payment For  Accepted Promo"}</DialogTitle>
+          <DialogTitle id="alert-dialog-title">
+            {'  Payment For  Accepted Promo'}
+          </DialogTitle>
           <DialogContent>
             <DialogContentText id="alert-dialog-description">
-             Your Payment is on the Way to your Promoter!
+              Your Payment is on the Way to your Promoter!
             </DialogContentText>
           </DialogContent>
           <DialogActions>
@@ -143,158 +145,192 @@ class MediaCard extends React.Component {
             </Button>
           </DialogActions>
         </Dialog>
-     <Grid container direction="column"
-  justify="center"
-  alignItems="center"
-  className={classes.root} spacing={16} cols="1">
-        <Grid item key='1'  >
-    <Card className={classes.card}>
-      <CardActionArea>
-        {/* <CardMedia
+        <Grid
+          container
+          direction="column"
+          justify="center"
+          alignItems="center"
+          className={classes.root}
+          spacing={16}
+          cols="1"
+        >
+          <Grid item key="1">
+            <Card className={classes.card}>
+              <CardActionArea>
+                {/* <CardMedia
           className={classes.media}
           image="https://material-ui.com/static/images/cards/contemplative-reptile.jpg"
           title="Contemplative Reptile"
         /> */}
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="h2">
-                  Sponsor Requests
-                </Typography>
-                <Typography component="p">
-                  New sponsor requests from small business promoters : like
-                  events, NPO and other SMBs
-                </Typography>
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="h2">
+                    Sponsor Requests
+                  </Typography>
+                  <Typography component="p">
+                    New sponsor requests from small business promoters : like
+                    events, NPO and other SMBs
+                  </Typography>
 
-                {searchResults.map(value => (
-                  <ListItem key={value.id} dense button     >
-                    <Avatar
-                      alt="Remy Sharp"
-                      src={value.img}
-                    />
+                  {searchResults.map(value => (
+                    <ListItem
+                      key={value.id}
+                      dense
+                      button
+                      style={{ listStyleType: 'none' }}
+                    >
+                      <Avatar alt="Remy Sharp" src={value.img} />
+                      <ListItemText
+                        style={{ listStyleType: 'none' }}
+                        primary={
+                          <span>
+                            {value.companyName} <p> {value.description} </p>{' '}
+                            <h3> {value.category} </h3>{' '}
+                          </span>
+                        }
+                      />
+
+                      <ListItemSecondaryAction>
+                        {/* if(value  == 2){  */}
+                        <ListItemIcon
+                          style={{ color: '#0066ff' }}
+                          aria-label="Comments"
+                        >
+                          <AddCircle onClick={this.handleAcceptRequest} />
+                        </ListItemIcon>
+                        {/* }
+                else{               */}
+                        <ListItemIcon
+                          style={{ color: '#ff3d00' }}
+                          aria-label="Comments"
+                        >
+                          <RemoveCircle />
+                        </ListItemIcon>
+                        {/* } */}
+                      </ListItemSecondaryAction>
+                    </ListItem>
+                  ))}
+                </CardContent>
+              </CardActionArea>
+              <CardActions>
+                {/* <Button size="small" color="primary">
+          Share
+        </Button> */}
+                {/* <Button size="small" color="primary">
+          Learn More
+        </Button> */}
+              </CardActions>
+            </Card>
+          </Grid>
+
+          <Grid item key="2">
+            <Card className={classes.card}>
+              <CardActionArea>
+                {/* <CardMedia
+          className={classes.media}
+          image="https://material-ui.com/static/images/cards/contemplative-reptile.jpg"
+          title="Contemplative Reptile"
+        /> */}
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="h2">
+                    Applied to Promoters:
+                  </Typography>
+                  <Typography component="p">
+                    Status of your applications to Promoters of your interest.
+                    Make your payment if accepted.
+                  </Typography>
+
+                  {/* {[1,2,3].map(value => ( */}
+                  <ListItem
+                    key={value}
+                    dense
+                    button
+                    style={{ listStyleType: 'none' }}
+                  >
+                    <Avatar alt="Remy Sharp" src={'./images/img2.jpg'} />
                     <ListItemText
                       primary={
                         <span>
-                           {value.companyName} <p>   {value.description} </p> <h3>  {value.category} </h3>{' '}
+                          `Line item ${value + 1}` <p>halo</p> <h3>test</h3>{' '}
                         </span>
                       }
                     />
 
                     <ListItemSecondaryAction>
-                      {/* if(value  == 2){  */}
-                      <ListItemIcon
-                        
-                         
-                        style={{ color: '#0066ff' }}
-                        aria-label="Comments"
-                      >
-                        <AddCircle onClick={this.handleAcceptRequest}/>
-                      </ListItemIcon>
-                      {/* }
-                else{               */}
+                      {/*                 
+                 <ListItemIcon   style={{color: '#0066ff',   }} aria-label="Comments">
+                  <Payment />
+                </ListItemIcon>                 */}
                       <ListItemIcon
                         style={{ color: '#ff3d00' }}
                         aria-label="Comments"
                       >
                         <RemoveCircle />
                       </ListItemIcon>
-                      {/* } */}
                     </ListItemSecondaryAction>
                   </ListItem>
-                ))}
-              </CardContent>
-            </CardActionArea>
-            <CardActions>
-              {/* <Button size="small" color="primary">
-          Share
-        </Button> */}
-              {/* <Button size="small" color="primary">
-          Learn More
-        </Button> */}
-            </CardActions>
-          </Card>
-        </Grid>
 
-        <Grid item key="2">
-          <Card className={classes.card}>
-            <CardActionArea>
-              {/* <CardMedia
-          className={classes.media}
-          image="https://material-ui.com/static/images/cards/contemplative-reptile.jpg"
-          title="Contemplative Reptile"
-        /> */}
-              <CardContent>
-                
-          <Typography gutterBottom variant="h5" component="h2">
-            Applied to Promoters:
-          </Typography>
-          <Typography component="p">
-            Status of your applications to Promoters of your interest. Make your payment if accepted.   
-          </Typography>
+                  <ListItem key={value + 1} dense button>
+                    <Avatar alt="Remy Sharp" src={'./images/imgsmb.jpg'} />
+                    <ListItemText
+                      primary={
+                        <span>
+                          `Line item ${value + 1}` <p>halo</p> <h3>test</h3>{' '}
+                        </span>
+                      }
+                    />
 
-           {/* {[1,2,3].map(value => ( */}
-        <ListItem key={value} dense button>
-              <Avatar alt="Remy Sharp" src={"./images/img2.jpg"}    />
-              <ListItemText primary={<span>`Line item ${value + 1}` <p>halo</p>  <h3>test</h3> </span>} />
-                
-              <ListItemSecondaryAction>
-{/*                 
-                 <ListItemIcon   style={{color: '#0066ff',   }} aria-label="Comments">
-                  <Payment />
-                </ListItemIcon>                 */}
-                <ListItemIcon   style={{color: '#ff3d00',}} aria-label="Comments">
-                  <RemoveCircle />
-                </ListItemIcon>
-
-              </ListItemSecondaryAction>
-            </ListItem>
-
-             <ListItem key={value+1} dense button>
-              <Avatar alt="Remy Sharp" src={"./images/imgsmb.jpg"}    />
-              <ListItemText primary={<span>`Line item ${value + 1}` <p>halo</p>  <h3>test</h3> </span>} />
-                
-              <ListItemSecondaryAction>
-                
-                 <ListItemIcon   style={{color: '#0066ff',   }} aria-label="Comments">
-                  <Payment onClick={this.handleAcceptPay}/>
-                </ListItemIcon>                
-                {/* <ListItemIcon   style={{color: '#ff3d00',}} aria-label="Comments">
+                    <ListItemSecondaryAction>
+                      <ListItemIcon
+                        style={{ color: '#0066ff' }}
+                        aria-label="Comments"
+                      >
+                        <Payment onClick={this.handleAcceptPay} />
+                      </ListItemIcon>
+                      {/* <ListItemIcon   style={{color: '#ff3d00',}} aria-label="Comments">
                   <RemoveCircle />
                 </ListItemIcon> */}
+                    </ListItemSecondaryAction>
+                  </ListItem>
 
-              </ListItemSecondaryAction>
-            </ListItem>
+                  <ListItem key={value + 2} dense button>
+                    <Avatar alt="Remy Sharp" src={'./images/img9.jpg'} />
+                    <ListItemText
+                      primary={
+                        <span>
+                          `Line item ${value + 1}` <p>halo</p> <h3>test</h3>{' '}
+                        </span>
+                      }
+                    />
 
-             <ListItem key={value+2} dense button>
-              <Avatar alt="Remy Sharp" src={"./images/img9.jpg"}    />
-              <ListItemText primary={<span>`Line item ${value + 1}` <p>halo</p>  <h3>test</h3> </span>} />
-                
-              <ListItemSecondaryAction>
-                
-                 {/* <ListItemIcon   style={{color: '#0066ff',   }} aria-label="Comments">
+                    <ListItemSecondaryAction>
+                      {/* <ListItemIcon   style={{color: '#0066ff',   }} aria-label="Comments">
                   <Payment />
                 </ListItemIcon>                 */}
-                <ListItemIcon   style={{color: '#ff3d00',}} aria-label="Comments">
-                  <RemoveCircle />
-                </ListItemIcon>
-
-              </ListItemSecondaryAction>
-            </ListItem>
-          {/* ) )} */}
-        </CardContent>
-      </CardActionArea>
-      <CardActions>
-        {/* <Button size="small" color="primary">
+                      <ListItemIcon
+                        style={{ color: '#ff3d00' }}
+                        aria-label="Comments"
+                      >
+                        <RemoveCircle />
+                      </ListItemIcon>
+                    </ListItemSecondaryAction>
+                  </ListItem>
+                  {/* ) )} */}
+                </CardContent>
+              </CardActionArea>
+              <CardActions>
+                {/* <Button size="small" color="primary">
           Share
         </Button> */}
-              {/* <Button size="small" color="primary">
+                {/* <Button size="small" color="primary">
           Learn More
         </Button> */}
-            </CardActions>
-          </Card>
+              </CardActions>
+            </Card>
+          </Grid>
         </Grid>
-      </Grid>
-    </div>
-  );
-}
+      </div>
+    );
+  }
 }
 
 MediaCard.propTypes = {
