@@ -168,7 +168,7 @@ class MediaCard extends React.Component {
                   <ListItem key={value.id} dense button     >
                     <Avatar
                       alt="Remy Sharp"
-                      src={'http://lorempixel.com/200/200/people/' + value}
+                      src={value.img}
                     />
                     <ListItemText
                       primary={
